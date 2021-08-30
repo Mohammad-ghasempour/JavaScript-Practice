@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+Number1: <input type="text" id="txt1"> <br><br>
+Number2: <input type="text" id="txt2"><br>
+<button type="button" onclick="fun1()">ADD+</button><br>
+<p id="demo"></p>
+
+
+</body>
+<script>
+function fun1(){
+    var x = document.getElementById('txt1').value;
+    var y = document.getElementById('txt2').value;
+document.getElementById('demo').innerHTML= parseInt(x) + parseInt(y);
+}
+</script>
+</html>
