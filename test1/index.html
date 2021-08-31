@@ -9,27 +9,28 @@
 </head>
 
 <body>
-    <p id='demo'></p><br>
-    <p id='demo2'></p><br>
-    <p id='demo3'></p>
+    <p id='demo'>.</p><br>
+    Enter a number between 5 and 10 : <input type="text" id="num"><br>
+    <button type="button" onclick="myfunc()">Click to evaluate</button>
+
 </body>
 
 <script>
-    var names = ['Ali', 'Reza', 'Jone', 'Mozhgan'];
-    for (i = 0; i < names.length; i++)
-        document.getElementById('demo').innerHTML += names[i] + '<br>'; 
-        // ------------------------
-        for (n in names)
-        document.getElementById('demo2').innerHTML += names[n] + ' ' + '-';
-
-        // ----------------------------
-
-        var x=0;
-        while(x<(names.length)){
-            document.getElementById('demo3').innerHTML += names[x] + ' & ';
-            x++;
-        }
-
+    function myfunc(){
+var message,x;
+message= document.getElementById('demo');
+message.innerHTML="";
+x= document.getElementById('num').value;
+try {
+    if (x=="") throw "Empty";
+    if (isNaN(x)) throw "Oops! Not a Number!";
+    if (x<5) throw "Number is too low";
+    if (x>10) throw "Number is too high";
+    message.innerHTML = "Input is correct";
+} catch (error) {
+    message.innerHTML= "Error: " + error;
+}
+}
 </script>
 
 </html>
