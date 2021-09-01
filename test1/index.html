@@ -10,27 +10,26 @@
 
 <body>
     <p id='demo'>.</p><br>
-    Enter a number between 5 and 10 : <input type="text" id="num"><br>
-    <button type="button" onclick="myfunc()">Click to evaluate</button>
+    Enter only characters: <input type="text" id="txt" placeholder="Do not enter numbers"> <br>
+    <input type="button" value="Check" onclick="myfunc()">
 
 </body>
 
 <script>
     function myfunc(){
-var message,x;
-message= document.getElementById('demo');
-message.innerHTML="";
-x= document.getElementById('num').value;
-try {
-    if (x=="") throw "Empty";
-    if (isNaN(x)) throw "Oops! Not a Number!";
-    if (x<5) throw "Number is too low";
-    if (x>10) throw "Number is too high";
-    message.innerHTML = "Input is correct";
-} catch (error) {
-    message.innerHTML= "Error: " + error;
-}
-}
+        var x , text;
+        x= document.getElementById('txt').value;
+        if (isNaN(x)){
+            text= "Correct Characters"
+            document.getElementById('demo').style.color="Green";
+        }
+        else{
+            text= "Incorrect!!!"
+            document.getElementById('demo').style.color="Red";
+
+        }
+        document.getElementById('demo').innerHTML= text;
+    }
 </script>
 
 </html>
