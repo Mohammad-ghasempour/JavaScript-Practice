@@ -10,26 +10,26 @@
 
 <body>
     <p id='demo'>.</p><br>
-    Enter only characters: <input type="text" id="txt" placeholder="Do not enter numbers"> <br>
-    <input type="button" value="Check" onclick="myfunc()">
+
 
 </body>
 
 <script>
-    function myfunc(){
-        var x , text;
-        x= document.getElementById('txt').value;
-        if (isNaN(x)){
-            text= "Correct Characters"
-            document.getElementById('demo').style.color="Green";
-        }
-        else{
-            text= "Incorrect!!!"
-            document.getElementById('demo').style.color="Red";
-
-        }
-        document.getElementById('demo').innerHTML= text;
+    function person(name, family, city) {
+        this.name = name;
+        this.family = family;
+        this.city = city;
     }
+var people = [];
+people.push( new person('ali','cheldavi','ahvaz'));
+people.push( new person('reza','saadat','shiraz'));
+people.push( new person('mohsen','kazemi','tabriz'));
+var text= "";
+for (n in people){
+    text+= people[n].name + " " + people[n].family + " " + people[n].city + "<br>";
+}
+document.getElementById('demo').innerHTML= text;
+
 </script>
 
 </html>
