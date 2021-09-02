@@ -10,26 +10,21 @@
 
 <body>
     <p id='demo'>.</p><br>
+    <button onclick="myfunc()">click</button>
+    <p>hi</p>
+    <p>how are you</p>
+    <p>this is</p>
+    <p>a pa tag</p>
+    <a href="#"><p>among of a tag</p></a>
 
 
 </body>
 
 <script>
-    function person(name, family, city) {
-        this.name = name;
-        this.family = family;
-        this.city = city;
-    }
-var people = [];
-people.push( new person('ali','cheldavi','ahvaz'));
-people.push( new person('reza','saadat','shiraz'));
-people.push( new person('mohsen','kazemi','tabriz'));
-var text= "";
-for (n in people){
-    text+= people[n].name + " " + people[n].family + " " + people[n].city + "<br>";
-}
-document.getElementById('demo').innerHTML= text;
-
+ var x = document.getElementsByTagName("p");
+ for (n in x){
+     console.log(x[n].innerHTML);
+ }
 </script>
 
 </html>
