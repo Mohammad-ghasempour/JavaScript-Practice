@@ -9,22 +9,22 @@
 </head>
 
 <body>
-    <p id='demo'>.</p><br>
-    <button onclick="myfunc()">click</button>
-    <p>hi</p>
-    <p>how are you</p>
-    <p>this is</p>
-    <p>a pa tag</p>
-    <a href="#"><p>among of a tag</p></a>
 
+<img id="pic" width="20%" height="30%">
+<p class="a12">Hi</p>
+<p >Everyone</p>
+<p class="a12">How are you</p>
+<p >Today</p>
+<p class="a12">Bye bye</p>
 
 </body>
 
 <script>
- var x = document.getElementsByTagName("p");
- for (n in x){
-     console.log(x[n].innerHTML);
- }
+document.getElementById('pic').src='C:/Users/47938/Pictures/Camera Roll/WIN_20210827_12_38_33_Pro.jpg';
+
+for(var i=0; i<20; i++){
+document.getElementsByClassName('a12')[i].style.color = 'red';
+}
 </script>
 
 </html>
