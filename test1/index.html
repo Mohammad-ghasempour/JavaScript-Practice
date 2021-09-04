@@ -9,21 +9,28 @@
 </head>
 
 <body>
+<button onclick="this.style.color='red'">Click</button>
+<div id="demo" onmouseover="func1()" onmouseout="func2(this)" style="background-color:rgb(166, 228, 166); height: 50px; width: 190px; padding: 30px; " >This is a Magic box!!!</div>
+<br>
+<div onmouseover=" this.style.color='red';"style="background-color:rgb(166, 228, 166); height: 50px; width: 190px; padding: 30px; " >This is a Magic box!!!</div>
 
-<img id="pic" width="20%" height="30%">
-<p class="a12">Hi</p>
-<p >Everyone</p>
-<p class="a12">How are you</p>
-<p >Today</p>
-<p class="a12">Bye bye</p>
+
 
 </body>
 
 <script>
-document.getElementById('pic').src='C:/Users/47938/Pictures/Camera Roll/WIN_20210827_12_38_33_Pro.jpg';
+function func1(){
+document.getElementById('demo').innerHTML=' I told you so!';
+}
+function func2(ali){
+ali.innerHTML='This is a Magic box!!!';
 
-for(var i=0; i<20; i++){
-document.getElementsByClassName('a12')[i].style.color = 'red';
+}
+
+
+window.addEventListener("copy", test);
+function test(){
+    alert('HI');
 }
 </script>
 
