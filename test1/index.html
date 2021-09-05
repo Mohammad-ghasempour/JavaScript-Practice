@@ -9,8 +9,10 @@
 </head>
 
 <body>
-    <button onclick="func1()">create</button>
+    <button onclick="func1()">create</button><br>
+    <button onclick="func2()">remove</button>
 <div id="div1">
+    <p id="par0" style="background-color: tomato;">this is a paragraph 0</p>
     <p id="par1">this is a paragraph 1</p>
     <p id="par2">this is a paragraph 2</p>
 </div>
@@ -26,7 +28,12 @@ var child = document.getElementById("par2");
 function func1(){
     //element.appendChild(para);
     element.insertBefore(para,child);
-
+    }
+function func2(){
+    var fordel= document.getElementById("par0");
+    fordel.remove();
+    
+    //this is a test for git
 }
 </script>
 
