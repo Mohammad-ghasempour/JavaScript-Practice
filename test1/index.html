@@ -9,36 +9,17 @@
 </head>
 
 <body>
-    <button onclick="func1()">create</button><br>
-    <button onclick="func2()">remove</button>
-<div id="div1">
-    <p id="par0" style="background-color: tomato;">this is a paragraph 0</p>
-    <p id="par1">this is a paragraph 1</p>
-    <p id="par2">this is a paragraph 2</p>
-</div>
+<p id="demo"></p>
+
 </body>
 
 <script>
-var para = document.createElement("p");
-var text = document.createTextNode("this is a paragraph 3");
-para.appendChild(text);
-var element = document.getElementById("div1");
-var child = document.getElementById("par2");
-
-function func1(){
-    //element.appendChild(para);
-    element.insertBefore(para,child);
+    var mytimer= setInterval(myfunc,1000);
+    function myfunc(){
+        var d= new Date();
+        document.getElementById('demo').innerHTML= d.toLocaleTimeString()
     }
-function func2(){
-    var fordel= document.getElementById("par0");
-    fordel.remove();
-    
-    //this is a test for git
-    
-    
-    // this part of text is created in new branch named: hello.
 
-}
 </script>
 
 </html>
