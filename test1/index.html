@@ -1,4 +1,7 @@
+<!DOCTYPE html>
 <html lang="en">
+   
+    
 
 <head>
     <meta charset="UTF-8">
@@ -10,15 +13,28 @@
 
 <body>
 <p id="demo"></p>
+<button id="button">Get data</button>
 
 </body>
 
 <script>
-    var mytimer= setInterval(myfunc,1000);
-    function myfunc(){
-        var d= new Date();
-        document.getElementById('demo').innerHTML= d.toLocaleTimeString()
-    }
+ document.getElementById('button').addEventListener('click',loadData);
+ 
+ function loadData(){
+     
+     const xhr = new XMLHttpRequest();
+     xhr.open('GET', 'https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json' , true);
+      
+     xhr.onload = function () {    //or use xhr.onreadystatechange
+            if (this.status == 200){ 
+            document.getElementById('demo').innerHTML= this.responseText;
+         }
+         else{
+             console.log('not');
+         }
+     }
+     xhr.send();
+ }
 
 </script>
 
