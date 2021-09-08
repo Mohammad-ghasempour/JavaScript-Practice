@@ -12,30 +12,29 @@
 </head>
 
 <body>
-    <p id="demo"></p>
+    
     <button id="button">Get data</button>
-
+    <p id="demo"></p>
 </body>
 
 <script>
-    document.getElementById('button').addEventListener('click', loadData);
+  document.getElementById('button').addEventListener('click', loadData);
+  function loadData(){
+      const xhr = new XMLHttpRequest();
+      const URL='https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json'
+      xhr.open('GET',URL ,true);
+      xhr.onload = function () {
+          if (this.status === 200){ 
+              let x = this.responseText;
+              x = JSON.parse(x);
+            let y = "My country is:" + x["countries"][100].name;
 
-    function loadData() {
-
-        const url = "https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json";
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-
-        xhr.onload = function () {    //or use xhr.onreadystatechange
-            if (this.status == 200) {
-                document.getElementById('demo').innerHTML = this.responseText;
-            }
-            else {
-                console.log('not');
-            }
-        }
-        xhr.send();
-    }
+             document.getElementById('demo').innerHTML=y ;
+              console.log(x) ;
+          }
+      }
+      xhr.send();
+  }
 
 </script>
 
