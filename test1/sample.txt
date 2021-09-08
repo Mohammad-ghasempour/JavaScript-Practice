@@ -1,0 +1,3 @@
+this is a sample text for use AJAX tutorial
+we want to read this file and put on in html file.
+Regards, Mohammad
