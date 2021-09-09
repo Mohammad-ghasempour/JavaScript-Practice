@@ -22,12 +22,19 @@
   function loadData(){
       const xhr = new XMLHttpRequest();
       const URL='https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json'
+      console.log('before open: ' + xhr.readyState);
+      
       xhr.open('GET',URL ,true);
-      xhr.onload = function () {
-          if (this.status === 200){ 
-              let x = this.responseText;
+      console.log('after open: ' + xhr.readyState);
+
+      xhr.onreadystatechange = function () {
+      console.log('first of func: ' + xhr.readyState);
+          if (this.status ===200 && this.readyState===4){ 
+            console.log('after if: ' + xhr.readyState);
+
+            let x = this.responseText;
               x = JSON.parse(x);
-            let y = "My country is:" + x["countries"][100].name;
+            let y = "My country is: " + x["countries"][100].name;
 
              document.getElementById('demo').innerHTML=y ;
               console.log(x) ;
