@@ -12,37 +12,71 @@
 </head>
 
 <body>
-    
-    <button id="button">Get data</button>
-    <p id="demo"></p>
+    <div>
+        <button id="button1">Get Customer</button>
+        <button id="button2">Get Customers</button> <br><br>
+        <h3>Customer:</h3>
+    </div>
+    <div id="Customer"></div>
+    <h3>Customers:</h3>
+    <div id="Customers"></div>
+
 </body>
 
 <script>
-  document.getElementById('button').addEventListener('click', loadData);
-  function loadData(){
-      const xhr = new XMLHttpRequest();
-      const URL='https://file-examples-com.github.io/uploads/2017/02/file_example_JSON_1kb.json'
-      console.log('before open: ' + xhr.readyState);
-      
-      xhr.open('GET',URL ,true);
-      console.log('after open: ' + xhr.readyState);
+    document.getElementById('button1').addEventListener('click', loadCustomer);
 
-      xhr.onreadystatechange = function () {
-      console.log('first of func: ' + xhr.readyState);
-          if (this.status ===200 && this.readyState===4){ 
-            console.log('after if: ' + xhr.readyState);
+    function loadCustomer() {
 
-            let x = this.responseText;
-              x = JSON.parse(x);
-            let y = "My country is: " + x["countries"][100].name;
+        const xhr = new XMLHttpRequest();
+        const URL = "customer.json";
+        xhr.open('GET', URL, true);
 
-             document.getElementById('demo').innerHTML=y ;
-              console.log(x) ;
-          }
-      }
-      xhr.send();
-  }
+        xhr.onload = function () {
 
+            const resault = JSON.parse(this.responseText);
+
+            const output = `<ul>
+             <li> ${resault.id}</li>
+            <li>${resault.name}</li>
+            <li>${resault.company}</li>
+            <li>${resault.phone}</li>
+            </ul>`
+            document.getElementById('Customer').innerHTML = output;
+
+
+
+        }
+        xhr.send();
+    }
+
+    //Read Customers file
+
+    document.getElementById('button2').addEventListener('click', loadcustomers);
+    function loadcustomers() {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', "customers.json", true);
+        xhr.onload = function () {
+            if (this.status === 200) {
+                const customers = JSON.parse(this.responseText);
+                let output = '';
+                customers.forEach(customers => {
+                    output += `<br>
+                    <ul>
+                        <li>${customers.id}</li>
+                        <li>${customers.name}</li>
+                        <li>${customers.company}</li>
+                        <li>${customers.phone}</li>   
+                     </ul>
+                    `
+                    document.getElementById('Customers').innerHTML = output;
+
+                });
+                                
+            }
+        }
+        xhr.send();
+    }
 </script>
 
 </html>
