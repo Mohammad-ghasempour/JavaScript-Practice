@@ -7,75 +7,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+ 
     <title>Document</title>
+
+
 
 </head>
 
 <body>
-    <div>
-        <button id="button1">Get Customer</button>
-        <button id="button2">Get Customers</button> <br><br>
-        <h3>Customer:</h3>
-    </div>
-    <div id="Customer"></div>
-    <h3>Customers:</h3>
-    <div id="Customers"></div>
+<div>
+    <h2>Chuck Norris Joke Generator</h2>
+    <form>
+        <div>
+            <label for="number">Number of Joke</label>
+            <input type="number" id="number" value="">
+        </div>
+        <div><button id="get-jokes">Get Joke</button></div>
+    </form>
+    <ul id="jokes"></ul>
+</div>
 
 </body>
 
 <script>
-    document.getElementById('button1').addEventListener('click', loadCustomer);
-
-    function loadCustomer() {
-
+        
+    document.getElementById('get-jokes').addEventListener('click', getJokes);
+    function getJokes(e){
+        const number = document.getElementById('number').value;
         const xhr = new XMLHttpRequest();
-        const URL = "customer.json";
-        xhr.open('GET', URL, true);
-
-        xhr.onload = function () {
-
-            const resault = JSON.parse(this.responseText);
-
-            const output = `<ul>
-             <li> ${resault.id}</li>
-            <li>${resault.name}</li>
-            <li>${resault.company}</li>
-            <li>${resault.phone}</li>
-            </ul>`
-            document.getElementById('Customer').innerHTML = output;
-
-
-
-        }
-        xhr.send();
-    }
-
-    //Read Customers file
-
-    document.getElementById('button2').addEventListener('click', loadcustomers);
-    function loadcustomers() {
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', "customers.json", true);
-        xhr.onload = function () {
-            if (this.status === 200) {
-                const customers = JSON.parse(this.responseText);
-                let output = '';
-                customers.forEach(customers => {
-                    output += `<br>
-                    <ul>
-                        <li>${customers.id}</li>
-                        <li>${customers.name}</li>
-                        <li>${customers.company}</li>
-                        <li>${customers.phone}</li>   
-                     </ul>
-                    `
-                    document.getElementById('Customers').innerHTML = output;
-
-                });
-                                
+    xhr.open('GET',`http://api.icndb.com/jokes/random/${number}`,true);
+        xhr.onload = function(){
+        if (this.status === 200){
+            const response = JSON.parse(this.responseText);
+            let output='';
+            if (response.type === 'success'){
+                response.value.forEach(function(text){
+                    output+= `<li>${text.joke}</li>`;
+                } )
+                
             }
+            else{
+                output+= `<li>Something went wrong</li>`;
+            }
+            document.getElementById('jokes').innerHTML=output;
         }
-        xhr.send();
+    }
+    xhr.send();
+    
+    e.preventDefault();
+
     }
 </script>
 
