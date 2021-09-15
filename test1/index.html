@@ -16,48 +16,53 @@
 </head>
 
 <body>
-<div>
-    <h2>Chuck Norris Joke Generator</h2>
-    <form>
-        <div>
-            <label for="number">Number of Joke</label>
-            <input type="number" id="number" value="">
-        </div>
-        <div><button id="get-jokes">Get Joke</button></div>
-    </form>
-    <ul id="jokes"></ul>
-</div>
+<p id="demo"></p><hr>
+<p id="demo2"></p>
 
 </body>
 
 <script>
-        
-    document.getElementById('get-jokes').addEventListener('click', getJokes);
-    function getJokes(e){
-        const number = document.getElementById('number').value;
-        const xhr = new XMLHttpRequest();
-    xhr.open('GET',`http://api.icndb.com/jokes/random/${number}`,true);
-        xhr.onload = function(){
-        if (this.status === 200){
-            const response = JSON.parse(this.responseText);
-            let output='';
-            if (response.type === 'success'){
-                response.value.forEach(function(text){
-                    output+= `<li>${text.joke}</li>`;
-                } )
-                
-            }
-            else{
-                output+= `<li>Something went wrong</li>`;
-            }
-            document.getElementById('jokes').innerHTML=output;
-        }
-    }
-    xhr.send();
-    
-    e.preventDefault();
+var person = {
+    fname: "Mohammad",
+    lname: "Ghasempour",
+    age: "37",
+    language: "EN",
+
+    get lang(){
+        return this.language;
+    },
+    set nat(nat){
+        person.nationality = nat;
 
     }
+    };
+    person.name = function(){
+        return this.fname + " " + this.lname;
+    };
+
+    person.nationality = "Iranian"
+
+    //console.log(person.name());
+    document.getElementById('demo').innerHTML= person.name() + " is " + person.lang;
+    var message= 'hello world';
+    var x = message.toUpperCase();
+
+    document.getElementById('demo2').innerHTML= x + person.nationality;
+
+
+
+
+    function Person1(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+  
+}
+var father = new Person1('ali','rezaei','44','black'); 
+console.log(father);
+
+
 </script>
 
 </html>
