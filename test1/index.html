@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
- 
+
     <title>Document</title>
 
 
@@ -16,53 +16,29 @@
 </head>
 
 <body>
-<p id="demo"></p><hr>
-<p id="demo2"></p>
+    <p id="demo"></p>
 
 </body>
 
 <script>
-var person = {
-    fname: "Mohammad",
-    lname: "Ghasempour",
-    age: "37",
-    language: "EN",
+function person (name,family,age,eye){
+    this.firstname = name;
+    this.lastname = family;
+    this.age = age;
+    this.eyecolor = eye;
 
-    get lang(){
-        return this.language;
-    },
-    set nat(nat){
-        person.nationality = nat;
-
-    }
-    };
-    person.name = function(){
-        return this.fname + " " + this.lname;
-    };
-
-    person.nationality = "Iranian"
-
-    //console.log(person.name());
-    document.getElementById('demo').innerHTML= person.name() + " is " + person.lang;
-    var message= 'hello world';
-    var x = message.toUpperCase();
-
-    document.getElementById('demo2').innerHTML= x + person.nationality;
-
-
-
-
-    function Person1(first, last, age, eye) {
-  this.firstName = first;
-  this.lastName = last;
-  this.age = age;
-  this.eyeColor = eye;
-  
 }
-var father = new Person1('ali','rezaei','44','black'); 
-console.log(father);
 
+person.prototype.nationality= "Iranian";
 
+var father = new person('Mohammad', 'Ghasempour', 37 , 'Brown');
+console.log(father.nationality);
+
+person.prototype.fullname = function(){
+    return `${this.firstname}  ${this.lastname}`;
+};
+
+console.log(father.fullname());
 </script>
 
 </html>
