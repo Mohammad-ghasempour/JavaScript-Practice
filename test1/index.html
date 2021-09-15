@@ -21,12 +21,22 @@
 </body>
 
 <script>
+
+const person1 = {};
+
+Object.defineProperty(person1,"age",{value: 22 , writable:false});
+console.log(person1.age);
+person1.age = 44;
+console.log(person1.age);
+
+
+
+
 function person (name,family,age,eye){
     this.firstname = name;
     this.lastname = family;
     this.age = age;
     this.eyecolor = eye;
-
 }
 
 person.prototype.nationality= "Iranian";
