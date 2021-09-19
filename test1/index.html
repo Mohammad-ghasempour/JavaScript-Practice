@@ -15,18 +15,18 @@
 </body>
 
 <script>
-    function findmax() {
-        var max = -Infinity;
-        for (i = 0; i < arguments.length; i++) {
-            if (arguments[i] > max) {
-                max = arguments[i];
-            }
-            
-
+    var person = {
+        fullName: function(){
+        return this.firstname + ' ' + this.lastname
         }
-        return max;
     }
-    console.log(findmax(3, 2, 8, 55 , 9));
+    var person1={
+        firstname: 'Mohammad',
+        lastname: 'Ghasempour'
+    }
+
+
+    console.log(person.fullName.call(person1));
 </script>
 
 </html>
