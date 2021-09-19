@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
-
     <title>Document</title>
-
-
-
 </head>
+
 
 <body>
     <p id="demo"></p>
@@ -21,34 +15,18 @@
 </body>
 
 <script>
+    function findmax() {
+        var max = -Infinity;
+        for (i = 0; i < arguments.length; i++) {
+            if (arguments[i] > max) {
+                max = arguments[i];
+            }
+            
 
-const person1 = {};
-
-Object.defineProperty(person1,"age",{value: 22 , writable:false});
-console.log(person1.age);
-person1.age = 44;
-console.log(person1.age);
-
-
-
-
-function person (name,family,age,eye){
-    this.firstname = name;
-    this.lastname = family;
-    this.age = age;
-    this.eyecolor = eye;
-}
-
-person.prototype.nationality= "Iranian";
-
-var father = new person('Mohammad', 'Ghasempour', 37 , 'Brown');
-console.log(father.nationality);
-
-person.prototype.fullname = function(){
-    return `${this.firstname}  ${this.lastname}`;
-};
-
-console.log(father.fullname());
+        }
+        return max;
+    }
+    console.log(findmax(3, 2, 8, 55 , 9));
 </script>
 
 </html>
