@@ -6,27 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
 </head>
 
 
 <body>
-    <p id="demo"></p>
-
+   <img id="testImage" src="https://www.roxo.ir/blog-panel/wp-content/uploads/2019/11/02-Async-JavaScript.jpg" alt="test" width="500" height="400">
+   <p id="p">Hi this is a test text for set some style to this tag!</p>
+   <button onclick="document.getElementById('p').style.visibility='hidden'">click me!</button>
+   <button onclick="document.getElementById('p').style.visibility='visible'">click me!</button>
+   
 </body>
 
 <script>
-    var person = {
-        fullName: function(){
-        return this.firstname + ' ' + this.lastname
-        }
-    }
-    var person1={
-        firstname: 'Mohammad',
-        lastname: 'Ghasempour'
-    }
+ //document.getElementById("testImage").width="500";
 
 
-    console.log(person.fullName.call(person1));
+ setInterval(() => {
+    i=new Date();
+    i=i.getSeconds();
+    if ((i%2) == 0){
+     document.getElementById("testImage").style.visibility="hidden";
+    }
+    else{
+     document.getElementById("testImage").style.visibility="visible";
+
+    }
+ 
+     
+ }, 1000);
+
+
+ document.getElementById("testImage").style.visibility="visible";
+ console.log('bye');
+
+ 
 </script>
 
 </html>
