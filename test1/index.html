@@ -12,35 +12,19 @@
 
 
 <body>
-   <img id="testImage" src="https://www.roxo.ir/blog-panel/wp-content/uploads/2019/11/02-Async-JavaScript.jpg" alt="test" width="500" height="400">
-   <p id="p">Hi this is a test text for set some style to this tag!</p>
-   <button onclick="document.getElementById('p').style.visibility='hidden'">click me!</button>
-   <button onclick="document.getElementById('p').style.visibility='visible'">click me!</button>
-   
+    
+<div id="demo" onmouseover="onMouse(this)" onmouseout="outMouse(this)">please bring the mouse cursor on me!</div>
 </body>
 
 <script>
- //document.getElementById("testImage").width="500";
-
-
- setInterval(() => {
-    i=new Date();
-    i=i.getSeconds();
-    if ((i%2) == 0){
-     document.getElementById("testImage").style.visibility="hidden";
-    }
-    else{
-     document.getElementById("testImage").style.visibility="visible";
-
-    }
- 
+   function onMouse(act){
      
- }, 1000);
+      act.innerHTML= "Thanks to done my dictate";
+   }
 
-
- document.getElementById("testImage").style.visibility="visible";
- console.log('bye');
-
+   function outMouse(act){
+      act.innerHTML= "please bring the mouse cursor on me Again!";
+   }
  
 </script>
 
