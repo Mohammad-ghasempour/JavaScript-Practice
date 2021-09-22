@@ -13,19 +13,17 @@
 
 <body>
     
-<div id="demo" onmouseover="onMouse(this)" onmouseout="outMouse(this)">please bring the mouse cursor on me!</div>
+
+<p id='demo2'></p>
 </body>
 
 <script>
-   function onMouse(act){
-     
-      act.innerHTML= "Thanks to done my dictate";
-   }
+      document.getElementById('demo2').innerHTML= Math.random();
+   
+   window.addEventListener('resize', function(){
 
-   function outMouse(act){
-      act.innerHTML= "please bring the mouse cursor on me Again!";
-   }
- 
+      document.getElementById('demo2').innerHTML= Math.random();
+   })
 </script>
 
 </html>
