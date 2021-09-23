@@ -12,18 +12,25 @@
 
 
 <body>
-    
-
-<p id='demo2'></p>
+<div id="div1">
+   <p id="p1">paragraph 1</p>
+   <p id="p2">paragraph 2</p>
+   </div>    
 </body>
 
 <script>
-      document.getElementById('demo2').innerHTML= Math.random();
-   
-   window.addEventListener('resize', function(){
 
-      document.getElementById('demo2').innerHTML= Math.random();
-   })
+   var para= document.createElement("p");
+   var text= document.createTextNode("new Paragraph");
+   para.appendChild(text);
+   var elem= document.getElementById("div1");
+   elem.appendChild(para);
+
+   //Or insert this new element before specific element.
+
+   // var child= document.getElementById("p1");
+   // elem.insertBefore(para,child);
+   
 </script>
 
 </html>
